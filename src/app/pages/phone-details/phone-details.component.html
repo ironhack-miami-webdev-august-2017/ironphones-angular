@@ -1,0 +1,16 @@
+<a routerLink="/"> Back to list </a>
+
+<h2> {{ phoneInfo.name }} </h2>
+
+<p> by {{ phoneInfo.brand }} </p>
+
+<img [src]="phoneInfo.image">
+
+<div *ngIf="phoneInfo.specs && phoneInfo.specs.length > 0">
+  <h4> Features </h4>
+  <ul>
+    <li *ngFor="let oneFeature of phoneInfo.specs">
+      {{ oneFeature }}
+    </li>
+  </ul>
+</div>
