@@ -1,0 +1,37 @@
+<h3> Add a Phone </h3>
+
+<p class="error" *ngIf="errorMessage">
+  {{ errorMessage }}
+</p>
+
+<form (ngSubmit)="saveNewPhone()">
+  <label for="phone-name-input"> Phone Name </label>
+  <input  id="phone-name-input" type="text" placeholder="iPhone 8 Plus"
+      name="phoneName" [(ngModel)]="newPhone.phoneName">
+  <br>
+
+  <label for="phone-brand-input"> Brand </label>
+  <input  id="phone-brand-input" type="text" placeholder="Apple"
+      name="phoneBrand"  [(ngModel)]="newPhone.phoneBrand">
+  <br>
+
+  <label for="phone-image-input"> Image URL </label>
+  <input  id="phone-image-input" type="text" placeholder="http://example.com/phone.gif"
+      name="phoneImage"  [(ngModel)]="newPhone.phoneImage">
+  <br>
+  <img [src]="newPhone.phoneImage">
+
+  <label for="phone-spec1-input"> Specs </label>
+  <br>
+  <input  id="phone-spec1-input" type="text" placeholder="8 megapixel camera"
+      name="phoneSpec"  [(ngModel)]="newPhone.phoneSpecs[0]">
+  <br>
+  <input type="text" placeholder="Wireless Charging"
+      name="phoneSpec"  [(ngModel)]="newPhone.phoneSpecs[1]">
+  <br>
+  <input type="text" placeholder="New Cables For Everything"
+      name="phoneSpec"  [(ngModel)]="newPhone.phoneSpecs[2]">
+  <br>
+
+  <button> Save This Phone </button>
+</form>

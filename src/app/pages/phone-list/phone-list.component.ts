@@ -9,6 +9,7 @@ import { PhoneApiService } from '../../services/phone-api.service';
 })
 export class PhoneListComponent implements OnInit {
 
+  isFormOn = false;
   phones: any[] = [];
 
   constructor(
@@ -23,5 +24,22 @@ export class PhoneListComponent implements OnInit {
           }
         );
   } // ngOnInit()
+
+  showForm() {
+      // PRO WAY
+      // this.isFormOn = !this.isFormOn;
+
+      if (this.isFormOn) {
+          this.isFormOn = false;
+      }
+      else {
+          this.isFormOn = true;
+      }
+  }
+
+  handleNewPhone(thePhone) {
+      this.phones.unshift(thePhone);
+      this.isFormOn = false;
+  }
 
 }

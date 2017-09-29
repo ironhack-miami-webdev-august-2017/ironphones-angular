@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { PhoneApiService } from '../../services/phone-api.service';
 
@@ -14,7 +14,8 @@ export class PhoneDetailsComponent implements OnInit {
 
   constructor(
     private activatedThang: ActivatedRoute,
-    private phoneThang: PhoneApiService
+    private phoneThang: PhoneApiService,
+    private routerThang: Router
   ) { }
 
   ngOnInit() {
@@ -27,6 +28,16 @@ export class PhoneDetailsComponent implements OnInit {
               }
             );
       });
+  }
+
+  deleteClick() {
+      // call the API for deletion
+      this.phoneThang.deletePhone(this.phoneInfo._id)
+        .subscribe(
+          () => {
+              this.routerThang.navigate(['']);
+          }
+        );
   }
 
 }
