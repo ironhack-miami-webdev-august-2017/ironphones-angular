@@ -5,14 +5,21 @@
     <a routerLink="/"> Our Phones </a>
     <br>
 
-    <a routerLink="/signup"> Sign Up </a>
-    <br>
+    <div *ngIf="!userInfo">
+      <a routerLink="/signup"> Sign Up </a>
+      <br>
 
-    <a routerLink="/login"> Log In </a>
-    <br>
+      <a routerLink="/login"> Log In </a>
+      <br>
+    </div>
 
-    <button (click)="logMeOut()"> Log Out </button>
-    <br>
+    <div *ngIf="userInfo">
+      <a routerLink="/myphones"> My Phones </a>
+      <br>
+
+      <button (click)="logMeOut()"> Log Out </button>
+      <br>
+    </div>
   </nav>
 </header>
 

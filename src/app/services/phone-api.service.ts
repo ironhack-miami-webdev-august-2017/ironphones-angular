@@ -43,6 +43,14 @@ export class PhoneApiService {
       );
   }
 
+  // GET /api/myphones
+  getMyPhones() {
+      return this.httpThang.get(
+          this.baseUrl + '/api/myphones',
+          { withCredentials: true }
+      );
+  }
+
   // PUT    /api/phones/ID
 
 }

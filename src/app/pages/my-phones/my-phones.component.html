@@ -1,0 +1,18 @@
+<h2> My Phones </h2>
+
+<div class="error" *ngIf="errorMessage">
+    <h3> {{ errorMessage }} </h3>
+</div>
+
+<ul>
+  <li *ngFor="let onePhone of myPhones">
+    <h3> {{ onePhone.name }} </h3>
+    <span> From {{ onePhone.brand }} </span>
+
+    <a [routerLink]="['/phone', onePhone._id]">
+      See Details
+    </a>
+
+    <img [src]="onePhone.image">
+  </li>
+</ul>
