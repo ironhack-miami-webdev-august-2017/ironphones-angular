@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { SignupInfo } from '../interfaces/signup-info';
+import { LoginInfo } from '../interfaces/login-info';
 
 @Injectable()
 export class AuthApiService {
@@ -12,7 +13,7 @@ export class AuthApiService {
     private httpThang: HttpClient
   ) { }
 
-  // POST /process-signup
+  // POST /api/process-signup
   postSignup(userInfo: SignupInfo) {
       return this.httpThang.post(
           this.baseUrl + '/api/process-signup',
@@ -21,7 +22,7 @@ export class AuthApiService {
       );  // need "withCredentials" for APIs that use the session
   }
 
-  // GET /checklogin
+  // GET /api/checklogin
   getLoginStatus() {
       return this.httpThang.get(
           this.baseUrl + '/api/checklogin',
@@ -29,7 +30,15 @@ export class AuthApiService {
       ); // need "withCredentials" for APIs that use the session
   }
 
-  // POST /process-login
-  // DELETE /logout
+  // POST /api/process-login
+  postLogin(loginCredentials: LoginInfo) {
+      return this.httpThang.post(
+          this.baseUrl + '/api/process-login',
+          loginCredentials,
+          { withCredentials: true }
+      );
+  }
+
+  // DELETE /api/logout
 
 }
