@@ -4,11 +4,12 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { SignupInfo } from '../interfaces/signup-info';
 import { LoginInfo } from '../interfaces/login-info';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthApiService {
 
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = environment.apiUrl;
 
   // the thing that receives the changes
   loginStatusSubject = new BehaviorSubject<any>({ isLoggedIn: false });
@@ -38,7 +39,7 @@ export class AuthApiService {
       });
 
       return signUpRequest;
-  }
+  } // postSignup()
 
   // GET /api/checklogin
   getLoginStatus() {
@@ -53,7 +54,7 @@ export class AuthApiService {
       });
 
       return loginStatusRequest;
-  }
+  } // getLoginStatus()
 
   // POST /api/process-login
   postLogin(loginCredentials: LoginInfo) {
@@ -72,7 +73,7 @@ export class AuthApiService {
       });
 
       return loginRequest;
-  }
+  } // loginRequest()
 
   // DELETE /api/logout
   logOut() {
@@ -87,6 +88,6 @@ export class AuthApiService {
       });
 
       return logoutRequest;
-  }
+  } // logOut()
 
 }
