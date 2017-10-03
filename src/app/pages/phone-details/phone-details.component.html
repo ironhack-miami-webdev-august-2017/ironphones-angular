@@ -16,6 +16,11 @@
 </div>
 
 <br>
-<button (click)="deleteClick()">
-  Delete
-</button>
+
+<div *ngIf="userInfo && phoneInfo.phoner === userInfo._id">
+  <h3> Owner Zone </h3>
+
+  <button (click)="deleteClick()">
+    Delete
+  </button>
+</div>

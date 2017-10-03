@@ -36,9 +36,15 @@ export class AuthApiService {
           this.baseUrl + '/api/process-login',
           loginCredentials,
           { withCredentials: true }
-      );
+      ); // need "withCredentials" for APIs that use the session
   }
 
   // DELETE /api/logout
+  logOut() {
+      return this.httpThang.delete(
+          this.baseUrl + '/api/logout',
+          { withCredentials: true }
+      );
+  }
 
 }

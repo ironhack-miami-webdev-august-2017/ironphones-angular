@@ -5,13 +5,15 @@
 
 <h2> Our Phones </h2>
 
-<button (click)="showForm()">
-  Add Phone
-</button>
+<div *ngIf="userInfo">
+  <button (click)="showForm()">
+    Add Phone
+  </button>
 
-<app-phone-form
-    *ngIf="isFormOn"
-    (newPhoneNotifier)="handleNewPhone($event)"></app-phone-form>
+  <app-phone-form
+      *ngIf="isFormOn"
+      (newPhoneNotifier)="handleNewPhone($event)"></app-phone-form>
+</div>
 
 <ul>
   <li *ngFor="let onePhone of phones">

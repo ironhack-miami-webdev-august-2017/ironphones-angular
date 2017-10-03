@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { PhoneApiService } from '../../services/phone-api.service';
+import { AuthApiService } from '../../services/auth-api.service';
 
 @Component({
   selector: 'app-phone-details',
@@ -11,11 +12,13 @@ import { PhoneApiService } from '../../services/phone-api.service';
 export class PhoneDetailsComponent implements OnInit {
 
   phoneInfo: any = {};
+  userInfo: any;
 
   constructor(
     private activatedThang: ActivatedRoute,
+    private routerThang: Router,
     private phoneThang: PhoneApiService,
-    private routerThang: Router
+    private authThang: AuthApiService
   ) { }
 
   ngOnInit() {
@@ -28,7 +31,16 @@ export class PhoneDetailsComponent implements OnInit {
               }
             );
       });
-  }
+
+      this.authThang.getLoginStatus()
+        .subscribe(
+          (loggedInInfo: any) => {
+              if (loggedInInfo.isLoggedIn) {
+                  this.userInfo = loggedInInfo.userInfo;
+              }
+          }
+        );
+  } // ngOnInit()
 
   deleteClick() {
       // call the API for deletion
