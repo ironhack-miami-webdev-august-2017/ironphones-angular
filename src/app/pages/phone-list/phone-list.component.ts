@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PhoneApiService } from '../../services/phone-api.service';
 import { AuthApiService } from '../../services/auth-api.service';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { AuthApiService } from '../../services/auth-api.service';
   styleUrls: ['./phone-list.component.css']
 })
 export class PhoneListComponent implements OnInit {
+
+  imageDomain = environment.apiUrl;
 
   isFormOn = false;
   phones: any[] = [];

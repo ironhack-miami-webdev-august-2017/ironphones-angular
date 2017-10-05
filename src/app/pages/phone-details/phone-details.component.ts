@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { PhoneApiService } from '../../services/phone-api.service';
 import { AuthApiService } from '../../services/auth-api.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-phone-details',
@@ -10,6 +11,8 @@ import { AuthApiService } from '../../services/auth-api.service';
   styleUrls: ['./phone-details.component.css']
 })
 export class PhoneDetailsComponent implements OnInit {
+
+  imageDomain = environment.apiUrl;
 
   phoneInfo: any = {};
   userInfo: any;

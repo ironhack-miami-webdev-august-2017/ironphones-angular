@@ -4,7 +4,7 @@
 
 <p> by {{ phoneInfo.brand }} </p>
 
-<img [src]="phoneInfo.image">
+<img [src]="imageDomain + phoneInfo.image">
 
 <div *ngIf="phoneInfo.specs && phoneInfo.specs.length > 0">
   <h4> Features </h4>

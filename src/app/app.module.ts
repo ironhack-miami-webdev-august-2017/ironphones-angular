@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { PhoneApiService } from './services/phone-api.service';
 import { AuthApiService } from './services/auth-api.service';
@@ -31,7 +32,8 @@ import { MyPhonesComponent } from './pages/my-phones/my-phones.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FileUploadModule
   ],
   providers: [
     PhoneApiService,

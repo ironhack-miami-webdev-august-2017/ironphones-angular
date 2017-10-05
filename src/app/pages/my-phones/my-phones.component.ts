@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PhoneApiService } from '../../services/phone-api.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-my-phones',
@@ -8,6 +9,8 @@ import { PhoneApiService } from '../../services/phone-api.service';
   styleUrls: ['./my-phones.component.css']
 })
 export class MyPhonesComponent implements OnInit {
+
+  imageDomain = environment.apiUrl;
 
   myPhones: any[] = [];
   errorMessage: string;

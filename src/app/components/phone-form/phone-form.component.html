@@ -15,11 +15,11 @@
       name="phoneBrand"  [(ngModel)]="newPhone.phoneBrand">
   <br>
 
-  <label for="phone-image-input"> Image URL </label>
-  <input  id="phone-image-input" type="text" placeholder="http://example.com/phone.gif"
-      name="phoneImage"  [(ngModel)]="newPhone.phoneImage">
+  <label for="phone-image-input"> Image </label>
+  <input  id="phone-image-input" type="file"
+      name="phoneImage" ng2FileSelect [uploader]="myUploader">
   <br>
-  <img [src]="newPhone.phoneImage">
+  <!-- <img [src]="newPhone.phoneImage"> -->
 
   <label for="phone-spec1-input"> Specs </label>
   <br>
