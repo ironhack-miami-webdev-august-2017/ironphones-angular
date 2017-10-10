@@ -20,6 +20,7 @@ export class PhoneFormComponent implements OnInit {
   myUploader =
     new FileUploader(
       {
+        method: 'POST',
         url: environment.apiUrl + '/api/phones',
         itemAlias: 'phoneImage'
       } // "itemAlias" is the input name we want the backend to receive
